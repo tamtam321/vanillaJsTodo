@@ -70,6 +70,7 @@ form button:hover
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 500ms ease;
 }
 
 .todo li
@@ -95,4 +96,21 @@ form button:hover
 .todo-item
 {
     padding: 0rem 0.5rem;
+}
+
+/* Now we can click on the check and trash button */
+.fa-check, .fa-trash
+{
+    pointer-events: none;
+}
+
+.completed
+{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.fall
+{
+    
 }

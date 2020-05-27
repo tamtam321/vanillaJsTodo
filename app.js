@@ -1,11 +1,12 @@
 //_____________Selector____________________
 // document.querySelector(): CSS selector által kijelölt HTML-ben első találat.
 const todoInput = document.querySelector(".todo-input");
-const todoButton = document.querySelector(".todo-button");
+const todoButton = document.querySelector(".addTodo-button");
 const todoList = document.querySelector(".todo-list");
 
 //____________Event Listeners_______________
 todoButton.addEventListener("click", addTodo);
+todoList.addEventListener("click", deleteCheck);
 
 //____________Functions_____________________
 function addTodo(event)
@@ -40,4 +41,26 @@ function addTodo(event)
 
     // Clear Todo INPUT VALUE
     todoInput.value = "";
+}
+
+// Delete Button Function
+function deleteCheck(e)
+{
+    // Store what I clicked on
+    const item = e.target;
+
+    // Delete Todo
+    if(item.classList[0] === "trash-btn")
+    {
+        const todo = item.parentElement;
+        todo.classList.add("fall");
+        todo.remove();
+    }
+
+    // Check Mark
+    if(item.classList[0] === "complete-btn")
+    {
+        const todo = item.parentElement;
+        todo.classList.toggle("completed");
+    }
 }
