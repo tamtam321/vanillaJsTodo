@@ -13,6 +13,7 @@ body
     min-height: 100vh;
 }
 
+/*___________ Header, Input, Add Button ________*/
 header
 {
     font-size: 1.5rem;
@@ -48,6 +49,7 @@ form button:hover
     color: white;
 }
 
+/*__________ List, Check & Trash Button ___________*/
 .todo-container
 {
     display: flex;
@@ -110,7 +112,52 @@ form button:hover
     opacity: 0.5;
 }
 
+/* Delete transition */
 .fall
 {
-    
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
+
+/*__________ All, Completed, Uncompleted Filter__________*/
+select
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+.select
+{
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+select
+{
+    color: #ff6f47;
+    width: 10rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.select::after
+{
+    content: "\25BC";
+    position: absolute;
+    background: #ff6f47;
+    top: 0;
+    right: -0.1rem;
+    padding: 1rem;
+    pointer-events: none;
+    transition: all 300ms ease;
+}
+
+.select:hover::after
+{
+    background: white;
+    color: #ff6f47;
 }

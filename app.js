@@ -3,10 +3,11 @@
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".addTodo-button");
 const todoList = document.querySelector(".todo-list");
+const filterOption = document.querySelector(".filter-todo");
 
 //____________Event Listeners_______________
 todoButton.addEventListener("click", addTodo);
-todoList.addEventListener("click", deleteCheck);
+todoList.addEventListener("click", checkDelete);
 
 //____________Functions_____________________
 function addTodo(event)
@@ -43,19 +44,11 @@ function addTodo(event)
     todoInput.value = "";
 }
 
-// Delete Button Function
-function deleteCheck(e)
+// Check & Delete Button Function
+function checkDelete(e)
 {
     // Store what I clicked on
     const item = e.target;
-
-    // Delete Todo
-    if(item.classList[0] === "trash-btn")
-    {
-        const todo = item.parentElement;
-        todo.classList.add("fall");
-        todo.remove();
-    }
 
     // Check Mark
     if(item.classList[0] === "complete-btn")
@@ -63,4 +56,24 @@ function deleteCheck(e)
         const todo = item.parentElement;
         todo.classList.toggle("completed");
     }
+
+    // Delete Todo
+    if(item.classList[0] === "trash-btn")
+    {
+        const todo = item.parentElement;
+        
+        // Animation
+        todo.classList.add("fall");
+
+        // After the transition remove item
+        todo.addEventListener("transitionend", function()
+        {
+            todo.remove();
+        });
+    }
+}
+
+function filterTodo(e)
+{
+    
 }
