@@ -6,7 +6,10 @@ const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 
 //____________Event Listeners_______________
+
+// When the page reload, if there is data in local storage then it will appear on the list.
 document.addEventListener("DOMContentLoaded", getTodos);
+
 addTodoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", checkDelete);
 filterOption.addEventListener("click", filterTodo);
