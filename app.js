@@ -1,13 +1,13 @@
 //_____________Selector____________________
 // document.querySelector(): CSS selector által kijelölt HTML-ben első találat.
 const todoInput = document.querySelector(".todo-input");
-const todoButton = document.querySelector(".addTodo-button");
+const addTodoButton = document.querySelector(".addTodo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 
 //____________Event Listeners_______________
 document.addEventListener("DOMContentLoaded", getTodos);
-todoButton.addEventListener("click", addTodo);
+addTodoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", checkDelete);
 filterOption.addEventListener("click", filterTodo);
 
