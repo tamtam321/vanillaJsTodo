@@ -198,8 +198,10 @@ function removeLocalTodos(todo)
         todos = JSON.parse(localStorage.getItem("todos"));
     }
 
+    // The todo parameter is the div inside the ul tag. We need the text of the list which is the children of the div element. The children function puts all the children into an array. The li tag is the first children and with the innerText function we access to the text. With the splice function we remove the text from the todos local storage array.
     const todoIndex = todo.children[0].innerText;
     todos.splice(todos.indexOf(todoIndex), 1);
 
+    // Then we update the todos array in the browser local storage.
     localStorage.setItem("todos", JSON.stringify(todos));
 }
